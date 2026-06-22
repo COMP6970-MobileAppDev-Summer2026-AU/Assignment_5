@@ -243,8 +243,8 @@ IntroScreen (logged in)
 ```dart
 // services/auth_service.dart
 final credential = await _auth.createUserWithEmailAndPassword(
-  email:    email.trim(),
-  password: password,
+email:    email.trim(),
+password: password,
 );
 await credential.user?.updateDisplayName(displayName);
 ```
@@ -264,14 +264,14 @@ await credential.user?.updateDisplayName(displayName);
 **AuthGate implementation:**
 ```dart
 StreamBuilder<User?>(
-  stream: FirebaseAuth.instance.authStateChanges(),
-  builder: (context, snapshot) {
-    if (snapshot.connectionState == ConnectionState.waiting)
-      return const Scaffold(body: Center(child: CircularProgressIndicator()));
-    if (snapshot.hasData && snapshot.data != null)
-      return const IntroScreen();   // logged in
-    return const LoginScreen();     // not logged in
-  },
+stream: FirebaseAuth.instance.authStateChanges(),
+builder: (context, snapshot) {
+if (snapshot.connectionState == ConnectionState.waiting)
+return const Scaffold(body: Center(child: CircularProgressIndicator()));
+if (snapshot.hasData && snapshot.data != null)
+return const IntroScreen();   // logged in
+return const LoginScreen();     // not logged in
+},
 )
 ```
 
@@ -437,6 +437,30 @@ Project #: 15110088381
 Auth:      Email/Password — Enabled
 Users:     console.firebase.google.com/project/nationalparks-comp6910/authentication/users
 ```
+
+---
+
+## 👥 View & Export Enrolled Users
+
+### View in Browser
+
+```
+console.firebase.google.com/project/nationalparks-comp6910/authentication/users
+```
+
+Shows a table with: Email · Provider · Created date · Last sign-in · User UID
+
+### Export via CLI
+
+```bash
+# Export all users to a JSON file
+firebase auth:export users.json --project=nationalparks-comp6910
+
+# View the exported file
+cat users.json
+```
+
+The exported JSON contains: `email`, `uid`, `createdAt`, `lastSignedInAt`, `providerUserInfo`.
 
 ---
 
