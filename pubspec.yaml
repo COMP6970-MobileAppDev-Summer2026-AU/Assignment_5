@@ -1,7 +1,7 @@
 name: nationalparks
-description: "National Parks Explorer — COMP 6910 Assignment 4 — Jahidul Arafat"
+description: "National Parks Explorer — COMP 6910 Assignment 5 — Jahidul Arafat"
 publish_to: 'none'
-version: 1.0.0+1
+version: 2.0.0+1
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
@@ -10,12 +10,22 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
+
+  # State management
   provider: ^6.1.5
+
+  # Firebase — Assignment 5
+  firebase_core: ^3.13.0
+  firebase_auth: ^5.5.2
+
+  # NPS API — Assignment 4
   http: ^1.4.0
-  flutter_map: ^7.0.2
-  latlong2: ^0.9.1
   cached_network_image: ^3.4.1
   shared_preferences: ^2.2.3
+
+  # Map + Directions
+  flutter_map: ^7.0.2
+  latlong2: ^0.9.1
   url_launcher: ^6.3.1
 
 dev_dependencies:
